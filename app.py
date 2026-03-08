@@ -1,10 +1,9 @@
 from flask import Flask, request, jsonify
 import pandas as pd
 import numpy as np # Import numpy for boolean operations if needed
-
+import joblib
 # Initialize the Flask application
 app = Flask(__name__)
-import joblib
 
 # Load the trained model from the file
 loaded_rf_regressor = joblib.load('/content/random_forest_regressor_model.joblib')
