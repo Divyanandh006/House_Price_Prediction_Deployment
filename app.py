@@ -6,7 +6,7 @@ import joblib
 app = Flask(__name__)
 
 # Load the trained model from the file
-loaded_rf_regressor = joblib.load('/content/random_forest_regressor_model.joblib')
+loaded_rf_regressor = joblib.load('random_forest_regressor_model.joblib')
 
 print("Random Forest Regressor model loaded successfully.")
 # Define the expected feature columns and their data types from X_train
