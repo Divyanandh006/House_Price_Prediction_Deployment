@@ -11,8 +11,37 @@ loaded_rf_regressor = joblib.load('random_forest_regressor_model.joblib')
 print("Random Forest Regressor model loaded successfully.")
 # Define the expected feature columns and their data types from X_train
 # This helps in creating a consistent input DataFrame
-feature_columns = joblib.load("feature_columns.joblib")
-feature_dtypes = joblib.load("feature_dtypes.joblib")
+feature_columns = [
+'Id',
+'Area',
+'Bedrooms',
+'Bathrooms',
+'Floors',
+'YearBuilt',
+'Location_Rural',
+'Location_Suburban',
+'Location_Urban',
+'Condition_Fair',
+'Condition_Good',
+'Condition_Poor',
+'Garage_Yes'
+]
+
+feature_dtypes = {
+'Id': 'int64',
+'Area': 'int64',
+'Bedrooms': 'int64',
+'Bathrooms': 'int64',
+'Floors': 'int64',
+'YearBuilt': 'int64',
+'Location_Rural': 'bool',
+'Location_Suburban': 'bool',
+'Location_Urban': 'bool',
+'Condition_Fair': 'bool',
+'Condition_Good': 'bool',
+'Condition_Poor': 'bool',
+'Garage_Yes': 'bool'
+}
 
 @app.route('/predict', methods=['POST'])
 def predict_house_price():
