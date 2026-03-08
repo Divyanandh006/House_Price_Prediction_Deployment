@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import numpy as np # Import numpy for boolean operations if needed
 import joblib
+import os
 # Initialize the Flask application
 app = Flask(__name__)
 
@@ -100,4 +101,5 @@ def predict_house_price():
     prediction = loaded_rf_regressor.predict(input_df)
     return jsonify({'predicted_price': float(prediction[0])})
 if __name__ == "__main__":
-    app.run(debug=True) 
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
