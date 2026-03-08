@@ -43,7 +43,9 @@ feature_dtypes = {
 'Condition_Poor': 'bool',
 'Garage_Yes': 'bool'
 }
-
+@app.route("/")
+def home():
+    return "House Price Prediction API is running successfully"
 @app.route('/predict', methods=['POST'])
 def predict_house_price():
     data = request.get_json()
